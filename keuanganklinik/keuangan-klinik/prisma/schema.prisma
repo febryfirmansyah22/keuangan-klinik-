@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model ObservasiUmum {
+  id         Int      @id @default(autoincrement())
+  nomor      Int
+  tanggal    String
+  namaPasien String
+  harga      Int
+  pembayaran String
+  total      Int
+  setor      Int      @default(0)
+  bulan      String
+  minggu     String
+  createdAt  DateTime @default(now())
+}
+
+model Cream {
+  id          Int      @id @default(autoincrement())
+  nomor       Int
+  tanggal     String
+  namaPasien  String
+  penjualan   String
+  hargaJual   Int
+  pengeluaran Int      @default(0)
+  keterangan  String
+  saldo       Int
+  bulan       String
+  createdAt   DateTime @default(now())
+}
+
+model FakturObat {
+  id         Int      @id @default(autoincrement())
+  nomor      Int
+  tanggal    String
+  pbfToko    String
+  harga      Int
+  keterangan String
+  bulan      String
+  createdAt  DateTime @default(now())
+}
