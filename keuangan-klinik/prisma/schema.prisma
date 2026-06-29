@@ -47,3 +47,36 @@ model FakturObat {
   bulan      String
   createdAt  DateTime @default(now())
 }
+
+model FeeDokter {
+  id             Int      @id @default(autoincrement())
+  namaDokter     String
+  hari           String
+  tanggal        String
+  shift          String
+  bulan          String
+  rjUmum         Int      @default(0)
+  rjBpjs         Int      @default(0)
+  obsUmum        Int      @default(0)
+  obsBpjs        Int      @default(0)
+  riUmum         Int      @default(0)
+  riBpjs         Int      @default(0)
+  visitUmum      Int      @default(0)
+  visitBpjs      Int      @default(0)
+  lainLain       Int      @default(0)
+  keterangan     String   @default("")
+  keteranganLain String   @default("")
+  injeksi        Int      @default(0)
+  ekg            Int      @default(0)
+  nebulisasi     Int      @default(0)
+  konsulRajal1   Int      @default(0)
+  konsulRajal2   Int      @default(0)
+  konsulRajal3   Int      @default(0)
+  konsulObs1     Int      @default(0)
+  konsulObs2     Int      @default(0)
+  konsulRanap1   Int      @default(0)
+  konsulRanap2   Int      @default(0)
+  feeLainnya     Int      @default(0)
+  catatanFee     String   @default("")
+  createdAt      DateTime @default(now())
+}

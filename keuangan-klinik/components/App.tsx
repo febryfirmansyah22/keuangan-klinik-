@@ -7,8 +7,9 @@ import ObsUmum from './ObsUmum'
 import Cream from './Cream'
 import FakturObat from './FakturObat'
 import Rekap from './Rekap'
+import FeeDokter from './FeeDokter'
 
-type Page = 'dashboard' | 'obs' | 'cream' | 'faktur' | 'rekap'
+type Page = 'dashboard' | 'obs' | 'cream' | 'faktur' | 'rekap' | 'feedokter'
 
 const titles: Record<Page, { title: string; sub: string }> = {
   dashboard: { title: 'Dashboard', sub: 'Ringkasan keuangan klinik' },
@@ -16,9 +17,10 @@ const titles: Record<Page, { title: string; sub: string }> = {
   cream: { title: 'CREAM', sub: 'Input & rekap penjualan cream' },
   faktur: { title: 'Faktur Obat', sub: 'Input & rekap pembelian obat' },
   rekap: { title: 'Rekap & Grafik', sub: 'Grafik & laporan bulanan' },
+  feedokter: { title: 'Fee Dokter', sub: 'Jadwal & kalkulasi fee dokter jaga' },
 }
 
-const MONTHS = ['2026-05','2026-04','2026-03','2026-02','2026-01']
+const MONTHS = ['2026-06','2026-05','2026-04','2026-03','2026-02','2026-01']
 const monthLabel = (m: string) => {
   const [y, mo] = m.split('-')
   const names = ['','Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des']
@@ -27,7 +29,7 @@ const monthLabel = (m: string) => {
 
 export default function App() {
   const [page, setPage] = useState<Page>('dashboard')
-  const [bulan, setBulan] = useState('2026-05')
+  const [bulan, setBulan] = useState('2026-06')
 
   const { title, sub } = titles[page]
 
@@ -63,6 +65,7 @@ export default function App() {
         {page === 'cream' && <Cream bulan={bulan} />}
         {page === 'faktur' && <FakturObat bulan={bulan} />}
         {page === 'rekap' && <Rekap />}
+        {page === 'feedokter' && <FeeDokter bulan={bulan} />}
       </main>
     </div>
   )
